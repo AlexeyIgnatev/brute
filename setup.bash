@@ -8,7 +8,6 @@ libbz2-dev libreadline-dev libsqlite3-dev curl git \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-~/.pyenv/src/configure && make -C ~/.pyenv/src
 
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
